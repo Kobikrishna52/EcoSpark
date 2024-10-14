@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 80vh; /* Ensure the body takes full viewport height */
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column; /* Stack the rows vertically */
+  height: 100%; /* Fill the entire height of the body */
+}
+
+.row {
+  flex: 0 0 auto; /* Do not grow or shrink */
+}
+
+#center-row {
+  height: 10%; /* Collecting Centre Name row */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#columns-row {
+  height: 60%; /* Two columns row */
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.column {
+  flex: 1;
+  height: 100%; /* Fill the height of the columns row */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrolling */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.column::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+.card:hover
+{
+  opacity: 0.5;
+  transition-duration: 0.4s;
+}
+
+.img_div {
+  height: 150px;
+  background-color: #f0f0f0;
+  margin-bottom: 1rem;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card_details_div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_details {
+  margin-bottom: 0.5rem;
+}
+
+#bottom-row {
+  height: 30%; /* Remaining 40% space */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Optional: background for bottom row */
+}
+
+#bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.large-box {
+  flex: 2;
+  box-shadow: none;
+  border:1px solid #adadad;
+  display: block;
+  flex-direction:unset;
+}
+
+.medium-box {
+  flex: 1;
+  cursor: pointer;
+}
+
+.medium-box:hover
+{
+  background-color: #4CAF50;
+  color: white;
+  transition-duration: 0.4s;
+  transition-property: inherit;
+}
+
+h3 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+h4 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  gap:1rem;
+}
+
+.columndown {
+  padding: 0 0.5rem;
+  border-radius: 0.3rem;
+  flex:2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.columndown:hover{
+  background-color: #4CAF50;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+.buy
+{
+  background-color: white;
+  cursor: pointer;
+  
+}
+
+.sell
+{
+   background-color: white;
+   cursor: pointer;
+   
+}
+
+.number {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.c1
+{
+  margin: 0rem 0;
+}
+
+

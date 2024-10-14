@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>User Login</title>
+</head>
+<body>
+    <div class="container">
+        <header>Register</header>
+        <div class="formcontainer">
+            <form action="Userlogin.html" class="form">
+                <div class="names">
+                    <input type="text" class="form name" id="fname" placeholder="Your Firstname">
+                    <input type="text" class="form name" id="lname" placeholder="Your Lastname">
+                </div>
+                <input type="email" class="form mail" id="mail" placeholder="Your MailId">
+                <div id="mail-status" class="id-status"></div>
+                <div class="passwords">
+                    <input type="password" class="form password" id="setpassword" placeholder="Your password">
+                    <input type="password" class="form password" id="confirmpassword" placeholder="Confirm password">
+                </div>
+                <div id="password-status" class="pass-status"></div>
+                <button class="sbt-btn" id="sbt-btn">Submit</button>
+            </form>
+        </div>
+        <p>Already have an account ? <a href="Userlogin.html">Login</a></p>
+    </div>
+    <script src="js/UserRegister.js"></script>
+</body>
+</html>

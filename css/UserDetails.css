@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* Body and other layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  height: 10%;
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+/* Main content section */
+.main-content {
+  height: 60%;
+  background-color: #ffffff;
+  padding: 1rem;
+  overflow-y: auto; /* Allow scrolling */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+}
+
+.main-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+}
+
+/* Grid layout for items */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  grid-gap: 1rem; /* Gap between cards */
+}
+
+/* Card styling */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  height:30vh;
+  border: 1px solid rgb(197, 197, 197);
+}
+
+
+
+/* Set the initial height to display two rows */
+.main-content {
+  max-height: calc(60% - 2rem); /* Subtract padding from height */
+}
+
+.item_price
+{
+  background-color: #d0ff9b;
+  font-size: 3rem;
+  display: flex;
+  font-weight: bolder;
+  height: 40%;
+  color: #147a00;
+  align-items:center;
+  justify-content: center;
+}
+.item_name
+{
+  background-color: white;
+  display: flex;
+  height:60%;
+  font-size: 2rem;
+  align-items:center;
+  justify-content: center;
+  font-weight: bolder;
+
+}
+/* Empty row occupying 30% of the viewport */
+.footer {
+    height: 30%; /* 30% of the viewport height */
+    background-color: #fff;
+    box-shadow: 10px 0px 80px rgba(0, 0, 0, 0.1); /* Blank area */
+}
+
+
+.footer {
+  height: 30%;
+  background-color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+

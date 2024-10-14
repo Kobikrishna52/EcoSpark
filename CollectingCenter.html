@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSpark | Collecting centre</title>
+    <link rel="stylesheet" href="css/detail.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="cc_name">Collecting Centre Name</h1>
+    </header>
+    <main id="main-content">
+        <div id="columns-row" class="row">
+            <div class="column" id="left-column">
+                <h2 class="columnheader">Seperation Centers</h2>
+                <section id="seperation-centers-cards" class="cards">
+                    <div id="seperation-card-template" class="card" style="display: none;">
+                        <div class="img_div">
+                            <div class="img"></div>
+                        </div>
+                        <div class="card_details_div">
+                            <div class="card_details"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="column" id="right-column">
+                <h2 class="columnheader">End Clients</h2>
+                <section id="end-clients-cards" class="cards">
+                    <div id="end-client-card-template" class="card" style="display: none;">
+                        <div class="img_div">
+                            <div class="img"></div>
+                        </div>
+                        <div class="card_details_div">
+                            <div class="card_details"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="bottom-row" class="row">
+            <div id="requests-from-customers" class="box large-box">
+                <h3>Requests from Customers</h3>
+                <div class="columns">
+                    <div class="columndown buy">
+                        <h4>For Buying</h4>
+                        <p class="number c1">0</p>
+                    </div>
+                    <div class="columndown sell">
+                        <h4>For Selling</h4>
+                        <p class="number c1">0</p>
+                    </div>
+                </div>
+            </div>
+            <div id="requests-from-scs" class="box medium-box">
+                <h3>Requests from SCs</h3>
+                <p class="number">0</p>
+            </div>
+            <div id="requests-from-ecs" class="box medium-box">
+                <h3>Requests from ECs</h3>
+                <p class="number">0</p>
+            </div>
+        </div>
+    </main>
+    <script src="js/detail.js"></script>
+</body>
+</html>

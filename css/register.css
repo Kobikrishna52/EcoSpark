@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background: #e4ffdc;
+}
+
+.container {
+  padding: 0px 20px 20px 20px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  background-color: white;
+  box-shadow: 1px 1px 12px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+header {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+  margin-top: 10%;
+  margin-bottom: 8%;
+}
+
+.formcontainer {
+  padding: 0px 20px 20px 20px;
+  margin-bottom: 10%;
+}
+
+.form {
+  font-size: 20px;
+  display: grid;
+}
+
+.form.name, .form.mail, .form.password {
+  padding: 6px 5px 6px 5px;
+  border-radius: 3px;
+  border: 2px;
+  border-style: groove;
+  margin-right: 1rem;
+}
+
+.sbt-btn {
+  padding: 6px 10px 6px 6px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 1px 3px 12px 2px;
+  font-size: 20px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.sbt-btn:hover{
+    opacity: 0.6;
+    transition-duration: 0.4s;
+}
+
+.names,
+.passwords {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.passwords {
+  margin-top: 1rem;
+}
+
+.pass-status,
+.id-status {
+  font-size: 12px;
+  color: red;
+}
+
+p {
+  text-align: center;
+}

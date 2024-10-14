@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">EcoSpark | </title>
+    <link rel="stylesheet" href="css/UserDetails.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 id="UserName"></h1>
+    </header>
+
+    <!-- Main content row -->
+    <div class="main-content">
+        <div class="card-container" id="cardContainer">
+            <!-- Cards will be dynamically added here via JS -->
+        </div>
+    </div>
+
+    <!-- Footer row with search and price filter -->
+    <div class="footer">
+
+
+
+
+            <div class="left-content">
+                <div id="searchbar">
+                    <input type="text" id="searchInput" placeholder="Search by name" />
+                    <div id="searchbtn">search</div>
+                </div>
+                <div id="price_filter">
+                    <div id="min" class="priceindicator"></div>
+                    <input type="number" id="minprice">
+                    <input type="number" id="maxprice">
+                    <div id="max" class="priceindicator"></div>
+                </div>
+            </div>
+
+
+
+
+            <div id="right-content">
+                <div id="buy">buy</div>
+                <div id="sell">sell</div>
+            </div>
+
+
+
+    </div>
+
+    <script src="js/UserDetails.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSpark | Home</title>
+    <link rel="stylesheet" href="css/Users.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="UserName">User name</h1>
+    </header>
+    <main id="main-content">
+        <div id="columns-row" class="row">
+            <div class="column" id="left-column">
+                <h2 class="columnheader">Collection centers</h2>
+                <section id="Collection-centers-cards" class="cards">
+                    <div id="Collection-card-template" class="card" style="display: none;">
+                        <div class="img_div">
+                            <div class="img"></div>
+                        </div>
+                        <div class="card_details_div">
+                            <div class="card_details"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="column" id="right-column">
+                <div class="rightcontent" id="map">
+                </div>
+            </div>
+        </div>
+    <script src="js/map.js"></script>
+    <script src="js/detail.js"></script>
+    <script src="js/Users.js"></script>
+</body>
+</html>
