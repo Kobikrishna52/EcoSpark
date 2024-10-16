@@ -158,6 +158,12 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
+  background-color:rgb(0, 155, 0);
+  height:3rem;
+  font-weight: bolder;
+  color:white;
+  font-size: x-large;
 }
 .price_filter_container
 {
@@ -165,12 +171,19 @@ header {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-top: 1rem;
+  font-weight: bolder;
+  font-size:large;
 }
 #price_filter
 {
   display: block;
   gap:1rem;
   flex:2;
+  border:1px solid rgb(0, 211, 0);
+  border-radius:1rem;
+  box-shadow: 10px 0px 80px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .cartbtn
@@ -181,8 +194,14 @@ header {
   background-color: #d0ff9b;
   flex:1;
   border-radius: 0.5rem;
+  color: rgb(0, 155, 0);
+  font-weight: bolder;
+  font-size: x-large;
 }
 
+.price{
+  height:2rem;
+}
 
 
 
