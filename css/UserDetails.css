@@ -145,6 +145,8 @@ header {
   cursor: pointer;
   font-size: larger;
   color: #fff;
+  font-weight: bolder;
+  font-size: x-large;
 }
 .down-container
 {
@@ -164,6 +166,7 @@ header {
   font-weight: bolder;
   color:white;
   font-size: x-large;
+  cursor: pointer;
 }
 .price_filter_container
 {
@@ -182,7 +185,6 @@ header {
   flex:2;
   border:1px solid rgb(0, 211, 0);
   border-radius:1rem;
-  box-shadow: 10px 0px 80px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -197,10 +199,14 @@ header {
   color: rgb(0, 155, 0);
   font-weight: bolder;
   font-size: x-large;
+  cursor: pointer;
 }
 
 .price{
   height:2rem;
+  font-size: larger;
+  border-radius: 0.5rem;
+  border:1px solid rgb(203, 255, 203);
 }
 
 

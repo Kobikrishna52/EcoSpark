@@ -50,6 +50,33 @@ function applyFilters() {
     renderItems(filteredItems);
 }
 
+function searchItems() {
+    const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+    filteredItems = allItems.filter(function(item) {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery);
+        return matchesSearch;
+    });
+
+    renderItems(filteredItems);
+}
+
+function sellItems()
+{
+    $.ajax({
+        type: 'POST',
+        url: '../php/UpdateSellCount.php',
+        data: { id: id },
+        success : function(data)
+        {
+           if(data==true)
+            console.alert("Selling Request Sent Successfully");
+           else
+           console.alert("There was error on sending request");
+        }
+    });
+}
+
 // Make the AJAX request to get items
 $.ajax({
     type: 'POST',
@@ -67,8 +94,8 @@ $.ajax({
             const minPrice = Math.min(...prices);
             const maxPrice = Math.max(...prices);
             console.log(minPrice+" "+maxPrice);
-            document.getElementById('min').innerHTML = minPrice;
-            document.getElementById('max').innerHTML = maxPrice;
+            document.getElementById('min').innerHTML = "Mininum : ₹";
+            document.getElementById('max').innerHTML = "";
             document.getElementById('minprice').min = minPrice;
             document.getElementById('maxprice').max=maxPrice;
             document.getElementById('minprice').max= maxPrice;
@@ -85,12 +112,15 @@ $.ajax({
 });
 
 // Attach filter logic to the Apply Filter button
-document.getElementById('searchbtn').addEventListener('click', applyFilters);
+document.getElementById('searchbtn').addEventListener('click', searchItems);
 
+document.getElementById('applybtn').addEventListener('click',applyFilters);
 // Dynamically update min/max price fields based on the range sliders
 document.getElementById('firsthalf').addEventListener('input', function() {
     document.getElementById('min').value = this.value;
 });
 document.getElementById('secondhalf').addEventListener('input', function() {
     document.getElementById('max').value = this.value;
+
+document.getElementById('sell').addEventListener('click',sellItems);
 });
