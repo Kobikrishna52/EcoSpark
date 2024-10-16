@@ -6,7 +6,7 @@ require '../vendor/autoload.php';
 
 use MongoDB\Client;
 
-//$id = $_POST['id'];
+$id = $_POST['id'];
 $id = "Cc01tr04";
 $uri = "mongodb+srv://kobikrishna52:Krishna%4052@cluster0.9twqr.mongodb.net/";
 header('X-Content-Type-Options: nosniff');

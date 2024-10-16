@@ -72,5 +72,17 @@ $(document).ready(function() {
             console.error('Failed to fetch data: ' + textStatus + ' - ' + errorThrown);
         }
     });
-});
 
+    $.ajax({
+        url: '../php/getSellCount.php',
+        method: 'GET',
+        data : {id : id},
+        success : function(data)
+        {
+            if(data.status == true)
+                document.getElementById('sellCount').innerHTML = data.count;
+            else
+               console.log('failed');
+        }
+});
+});
