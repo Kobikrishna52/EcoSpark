@@ -89,16 +89,19 @@ header {
     height: 30%; /* 30% of the viewport height */
     background-color: #fff;
     box-shadow: 10px 0px 80px rgba(0, 0, 0, 0.1); /* Blank area */
+    padding: 1rem;
+    display: flex;
 }
 
-
-.footer {
-  height: 30%;
-  background-color: #fff;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+.left-content
+{
+  flex:2.5;
 }
+
+.right-content
+{
+  flex:1;
+}
+
 
 
