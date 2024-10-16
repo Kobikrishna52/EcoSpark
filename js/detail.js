@@ -72,17 +72,26 @@ $(document).ready(function() {
             console.error('Failed to fetch data: ' + textStatus + ' - ' + errorThrown);
         }
     });
-
+    const urlParams = new URLSearchParams(window.location.search);
+    const manager = urlParams.get('manager_name');
+    const id = urlParams.get('id');
+    console.log(id);
+    document.getElementById('cc_name').innerHTML = manager;
     $.ajax({
         url: '../php/getSellCount.php',
-        method: 'GET',
+        method: 'POST',
         data : {id : id},
         success : function(data)
         {
+            console.log(data.count);
             if(data.status == true)
                 document.getElementById('sellCount').innerHTML = data.count;
             else
                console.log('failed');
-        }
+        },
+        error: function()
+        {
+            console.log("hello");
+        },
 });
 });

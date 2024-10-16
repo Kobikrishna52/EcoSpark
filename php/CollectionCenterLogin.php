@@ -10,7 +10,7 @@ class UserManager {
 
     public function userExistsInMongoDB($email, $password) {
         // Find user by email and password
-        $existingDocument = $this->mongoCollection->findOne(['_id' => $email, 'password' => $password]);
+        $existingDocument = $this->mongoCollection->findOne(['manager_id' => $email, 'password' => $password]);
         return $existingDocument;
     }
 }
@@ -27,7 +27,7 @@ header('Content-Type: application/json');
 
 $client = new Client($uri);
 $database = $client->selectDatabase('EcoSpark'); // Your database name
-$collection = $database->selectCollection('userData');
+$collection = $database->selectCollection('Collection centers');
 $userManager = new UserManager($collection);
 
 $email = $_POST['mail'];
@@ -39,8 +39,8 @@ if ($user) {
     // Return success status and user data
     $response = [
         'status' => 'success',
-        'fname' => $user['fname'], // Adjust according to your database structure
-        'lname' => $user['lname'] // Adjust according to your database structure
+        'manager_name' => $user['manager'],
+        'id'=> $user['_id'],
     ];
     echo json_encode($response);
 } else {

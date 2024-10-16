@@ -15,9 +15,9 @@ $("#sbt-btn").click(function () {
         success: function (response) {
             const data = response;
             if (data.status == 'success') {
-                let fname = encodeURIComponent(data.fname);
-                let lname = encodeURIComponent(data.lname);
-                window.location.href = '../Users.html?fname='+fname+'&lname='+lname;
+                let manager_name = encodeURIComponent(data.manager_name);
+                let id = encodeURIComponent(data.id);
+                window.location.href = '../CollectingCenter.html?manager_name='+manager_name+'&id='+id;
             } else {
                 document.getElementById('result').innerHTML = "invalid UserId or Password";
             }
