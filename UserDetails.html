@@ -27,26 +27,30 @@
 
 
 
-            <div class="left-content">
-                <div id="searchbar">
-                    <input type="text" id="searchInput" placeholder="Search by name" />
-                    <div id="searchbtn">search</div>
-                </div>
+        <div class="left-content">
+            <div id="searchbar">
+                <input type="text" id="searchInput" placeholder="Search by name" />
+                <div id="searchbtn">search</div>
+            </div>
+            <div class="down-container">
                 <div id="price_filter">
-                    <div id="min" class="priceindicator"></div>
-                    <input type="number" id="minprice">
-                    <input type="number" id="maxprice">
-                    <div id="max" class="priceindicator"></div>
+                    <p>Enter the Price range to filter</p>
+                    <div class="price_filter_container">
+                        <div id="min" class="priceindicator"></div>
+                        <input type="number" class="price min" id="minprice">
+                        <input type="number" class="price max" id="maxprice">
+                        <div id="max" class="priceindicator"></div>
+                    </div>
+                    <div class="applybtn" id="applybtn">Apply</div>
                 </div>
+                <div class="cartbtn">Show Cart</div>
             </div>
+        </div>
 
-
-
-
-            <div class="right-content">
-                <div id="buy">buy</div>
-                <div id="sell">sell</div>
-            </div>
+        <div class="right-content">
+            <div class="button sell">Sell</div>
+            <div class="button buy">Buy</div>
+        </div>
 
 
 
