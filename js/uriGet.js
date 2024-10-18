@@ -3,7 +3,9 @@ function getQueryParameter(name) {
     return urlParams.get(name);
 }
 
-window.onload = function() {
+
+
+window.onload = function () {
     // Set the header name based on the query parameter
     const cardName = getQueryParameter('name');
     if (cardName) {
