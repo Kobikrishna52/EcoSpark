@@ -143,6 +143,7 @@ header {
   transition: all 0.5s ease;
   transform: scale(1);
   cursor: pointer;
+  border: 4px solid rgb(165, 255, 165);
 }
 
 .expandable-div:hover {

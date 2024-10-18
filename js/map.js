@@ -1,10 +1,5 @@
 window.apiKey = "IuvD1L_Ez9yMFOJILH7OwJTuMP2pyuwcrcq5quAVvvk";
 
-function moveMapToBerlin(map) {
-    map.setCenter({ lat: 28.75340274008254, lng: 77.49703421350239 });
-    map.setZoom(16);
-}
-
 function createDOMMarker(data, map) {
     console.log("From map" + data[0].lat);
     data.forEach(item => {
@@ -33,6 +28,7 @@ function createDOMMarker(data, map) {
                 clonedElement.addEventListener('mouseout', () => {
                     clonedElement.style.opacity = 1;
                     clonedElement.style.backgroundColor = "rgb(0, 131, 39)";
+                    clonedElement.style.border = "4px solid rgb(165, 255, 165)";
 
                 });
             }
@@ -94,6 +90,35 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 
 // Now use the map as required...
 window.onload = function () {
-    moveMapToBerlin(map);
     addMarkersToMap(map);
 }
+
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            // Center the map on the user's current location
+            map.setCenter(currentLocation);
+            map.setZoom(16);
+
+            // Add a marker at the current location
+            var currentLocationMarker = new H.map.Marker(currentLocation);
+            map.addObject(currentLocationMarker);
+        }, function (error) {
+            alert('Unable to retrieve your location. Please check your location settings.');
+        }, {
+            enableHighAccuracy: true, // Request high accuracy location
+            timeout: 10000,           // Set a timeout (optional)
+            maximumAge: 0             // Do not use a cached location
+        });
+    } else {
+        alert('Geolocation is not supported by your browser.');
+    }
+}
+
+// Call the function to get current location when the page loads
+getCurrentLocation();
