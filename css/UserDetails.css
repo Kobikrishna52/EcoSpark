@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 /* Body and other layout */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
@@ -29,20 +30,26 @@ header {
   height: 60%;
   background-color: #ffffff;
   padding: 1rem;
-  overflow-y: auto; /* Allow scrolling */
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+  overflow-y: auto;
+  /* Allow scrolling */
+  scrollbar-width: none;
+  /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar in IE and Edge */
 }
 
 .main-content::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+  display: none;
+  /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
 }
 
 /* Grid layout for items */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
-  grid-gap: 1rem; /* Gap between cards */
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 cards per row */
+  grid-gap: 1rem;
+  /* Gap between cards */
 }
 
 /* Card styling */
@@ -52,95 +59,96 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   overflow: hidden;
-  height:30vh;
+  height: 30vh;
   border: 1px solid rgb(197, 197, 197);
 }
 
 
+.card.selected {
+  border: 2px solid #4CAF50;
+  background-color: #e0ffe0;
+}
 
 /* Set the initial height to display two rows */
 .main-content {
-  max-height: calc(60% - 2rem); /* Subtract padding from height */
+  max-height: calc(60% - 2rem);
+  /* Subtract padding from height */
 }
 
-.item_price
-{
+.item_price {
   background-color: #d0ff9b;
   font-size: 3rem;
   display: flex;
   font-weight: bolder;
   height: 40%;
   color: #147a00;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 }
-.item_name
-{
+
+.item_name {
   background-color: white;
   display: flex;
-  height:60%;
+  height: 60%;
   font-size: 2rem;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   font-weight: bolder;
 }
+
 /* Empty row occupying 30% of the viewport */
 .footer {
-    height: 30%; /* 30% of the viewport height */
-    background-color: #fff;
-    box-shadow: 10px 0px 80px rgba(0, 0, 0, 0.1); /* Blank area */
-    padding: 1rem;
-    display: flex;
+  height: 30%;
+  /* 30% of the viewport height */
+  background-color: #fff;
+  box-shadow: 10px 0px 80px rgba(0, 0, 0, 0.1);
+  /* Blank area */
+  padding: 1rem;
+  display: flex;
 }
 
-#searchbar
-{
+#searchbar {
   display: flex;
-  gap:1rem;
+  gap: 1rem;
   font-size: larger;
 }
 
-#searchInput
-{
-   flex:3;
-   padding:1rem;
-   font-size: larger;
-   border-radius: 6px;
-   border:1px solid rgb(203, 255, 203);
+#searchInput {
+  flex: 3;
+  padding: 1rem;
+  font-size: larger;
+  border-radius: 6px;
+  border: 1px solid rgb(203, 255, 203);
 }
 
-#searchbtn
-{
- flex:1;
- justify-content: center;
- align-items:center;
- display: flex;
- background-color: #4CAF50;
- color:#fff;
- border-radius: 0.5rem;
- cursor: pointer;
-}
-
-.left-content
-{
-  flex:2.5;
-  padding:0.5rem;
-}
-
-.right-content
-{
-  flex:1;
+#searchbtn {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
   display: flex;
-  padding:0.5rem;
-  gap:0.5rem;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
-.button
-{
+.left-content {
+  flex: 2.5;
+  padding: 0.5rem;
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex:1;
+  flex: 1;
   background-color: #4CAF50;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -149,53 +157,52 @@ header {
   font-weight: bolder;
   font-size: x-large;
 }
-.down-container
-{
+
+.down-container {
   display: flex;
-  gap:1rem;
+  gap: 1rem;
   justify-content: space-evenly;
   margin-top: 1rem;
 }
-.applybtn
-{
+
+.applybtn {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  background-color:rgb(0, 155, 0);
-  height:3rem;
+  background-color: rgb(0, 155, 0);
+  height: 3rem;
   font-weight: bolder;
-  color:white;
+  color: white;
   font-size: x-large;
   cursor: pointer;
 }
-.price_filter_container
-{
+
+.price_filter_container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
   font-weight: bolder;
-  font-size:large;
+  font-size: large;
 }
-#price_filter
-{
+
+#price_filter {
   display: block;
-  gap:1rem;
-  flex:2;
-  border:1px solid rgb(0, 211, 0);
-  border-radius:1rem;
+  gap: 1rem;
+  flex: 2;
+  border: 1px solid rgb(0, 211, 0);
+  border-radius: 1rem;
   overflow: hidden;
 }
 
-.cartbtn
-{
+.cartbtn {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #d0ff9b;
-  flex:1;
+  flex: 1;
   border-radius: 0.5rem;
   color: rgb(0, 155, 0);
   font-weight: bolder;
@@ -203,13 +210,9 @@ header {
   cursor: pointer;
 }
 
-.price{
-  height:2rem;
+.price {
+  height: 2rem;
   font-size: larger;
   border-radius: 0.5rem;
-  border:1px solid rgb(203, 255, 203);
+  border: 1px solid rgb(203, 255, 203);
 }
-
-
-
-

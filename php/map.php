@@ -32,6 +32,8 @@ try {
             $result[] = [
                 'id'=>$document['_id'],
                 'location' => $document['Location'],
+                'lat' => $document['coordinates']['lat'],
+                'long' => $document['coordinates']['long']
             ];
         }
     }
