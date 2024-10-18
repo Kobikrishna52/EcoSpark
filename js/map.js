@@ -31,9 +31,6 @@ function createDOMMarker(data, map) {
                     clonedElement.style.border = "4px solid rgb(165, 255, 165)";
 
                 });
-                clonedElement.addEventListener('click', () => {
-                    window.location.href = '../UserDetails.html?location=' + encodeURIComponent(item.location) + '&id=' + encodeURIComponent(item.id);
-                });
             }
             ,
 
@@ -100,8 +97,8 @@ function getCurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             var currentLocation = {
-                lat: 28.753449769825647,
-                lng: 77.49701275582234
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
             };
 
             // Center the map on the user's current location
