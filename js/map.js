@@ -19,13 +19,15 @@ function createDOMMarker(data, map) {
 
         let domIcon = new H.map.DomIcon(outerElement, {
             onAttach: function (clonedElement) {
-                // Add event listeners for opacity change (if needed)
+                // Add event listeners for opacity change (if needed) 
                 clonedElement.addEventListener('mouseover', () => {
+                    clonedElement.style.zIndex = 1000;
                     clonedElement.style.backgroundColor = "white";
                     clonedElement.style.color = "rgb(0, 131, 39)";
                     clonedElement.style.border = "2px solid green";
                 });
                 clonedElement.addEventListener('mouseout', () => {
+                    clonedElement.style.zIndex = '';
                     clonedElement.style.opacity = 1;
                     clonedElement.style.backgroundColor = "rgb(0, 131, 39)";
                     clonedElement.style.border = "4px solid rgb(165, 255, 165)";

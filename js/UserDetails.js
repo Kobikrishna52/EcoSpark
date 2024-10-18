@@ -62,7 +62,19 @@ function searchItems() {
 
     renderItems(filteredItems);
 }
-
+function updateOrder(selectedItems) {
+    $.ajax({
+        type: 'POST',
+        url: '../php/UpdateBuyCount.php',
+        data: { items: selectedItems, id: id, location: place },
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (data) {
+            console.log("hello");
+        }
+    });
+}
 // Function to handle the Buy/Confirm button behavior
 function toggleBuyButton() {
     const buyButton = document.querySelector('.buy');
@@ -75,6 +87,7 @@ function toggleBuyButton() {
         // Log selected items in the console
         console.log('Selected Items:', selectedItems);
 
+        updateOrder(selectedItems);
         // Reset selected items after confirming
         selectedItems = [];
 
@@ -102,8 +115,11 @@ function toggleBuyButton() {
 
 // Function to toggle card selection
 function toggleSelectCard(card) {
-    const itemName = card.querySelector('.item_name').textContent;
-    const itemPrice = card.querySelector('.item_price').textContent;
+    let itemName = card.querySelector('.item_name').textContent;
+    itemName = itemName.replace(/\s{2,}/g, '');
+    let itemPrice = card.querySelector('.item_price').textContent;
+    itemPrice = itemPrice.replace(/\s{2,}/g, '');
+    itemPrice = itemPrice.replace('₹', '');
 
     // Toggle the 'selected' class
     card.classList.toggle('selected');

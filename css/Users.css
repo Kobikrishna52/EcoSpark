@@ -160,6 +160,7 @@ header {
 .expandable-div:hover .expandable-content {
   font-weight: bolder;
   opacity: 1;
+  position: absolute;
 }
 
 .expandable-content p {
