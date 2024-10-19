@@ -31,7 +31,16 @@ morebtn.addEventListener('click', () => {
         isSelected = true;
     }
 });
-
-document.getElementById('profile-btn').addEventListener('click', () => {
-
+isprofileSelected = false;
+let profilebtn = document.getElementById('profile-btn');
+let profile = document.getElementById('showprofile');
+profilebtn.addEventListener('click', () => {
+    if (isprofileSelected) {
+        profile.style.display = "none";
+        isprofileSelected = false;
+    }
+    else {
+        profile.style.display = "block";
+        isprofileSelected = true;
+    }
 });

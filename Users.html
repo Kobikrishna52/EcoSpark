@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoSpark | Home</title>
     <link rel="stylesheet" href="css/Users.css">
+    <link rel="stylesheet" href="css/Userprofile.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
@@ -33,6 +34,75 @@
     <div id="search-results" style="display: none;">
         No results
     </div>
+
+
+
+
+
+
+
+    <div id="profile-container">
+        <div class="container" id="showprofile">
+            <header id="header-profile">User Profile</header>
+            <table id="display" style="width:100%">
+                <tr>
+                    <th>Firstname:</th>
+                    <td>
+                        <div id="fname" class="data" contenteditable="true"></div>
+                    </td>
+                    <th>Lastname:</th>
+                    <td>
+                        <div id="lname" class="data" contenteditable="true"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <td>
+                        <div id="age" class="unchangable"></div>
+                    </td>
+                    <th>Gender:</th>
+                    <td>
+                        <div>
+                            <select id="gender" class="data">
+                                <option value="-" style="color: rgb(165, 165, 165);">Select</option>
+                                <option value="m">Male</option>
+                                <option value="f">Female</option>
+                                <option value="na">Doesn't want to specify</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Uniqueid:</th>
+                    <td>
+                        <div id="mailid"></div>
+                    </td>
+                    <th>Mobile No:</th>
+                    <td>
+                        <div id="mobile" class="data" contenteditable="true"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>DOB:</th>
+                    <td>
+                        <input type="date" class="data" id="dob">
+                    </td>
+                    <td>
+                        <div class="status" id="status"></div>
+                    </td>
+                </tr>
+            </table>
+            <button id="edit-btn" class="edit">Save Changes</button>
+        </div>
+    </div>
+    <script src="js/profile.js"></script>
+
+
+
+
+
+
+
     <main id="main-content">
         <div id="columns-row" class="row">
             <div class="column" id="left-column">
