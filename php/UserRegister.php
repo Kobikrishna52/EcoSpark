@@ -24,7 +24,12 @@ class UserManager {
             'lname' => $lname,
             'mobile' => 0,
             'dob' => '-',
-            'password'=> $password
+            'password'=> $password,
+            'gender'=>'-',
+            'state'=>'-',
+            'district'=>'-',
+            'pincode'=>"",
+            'address'=>""
         );
         $this->mongoCollection->insertOne($document);
     }

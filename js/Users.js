@@ -1,4 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
+urlParams = new URLSearchParams(window.location.search);
 fname = urlParams.get('fname');
 lname = urlParams.get('lname');
 

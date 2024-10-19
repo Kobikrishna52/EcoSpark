@@ -18,6 +18,10 @@ $dob = $_POST['dob'];
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 $mobile = $_POST['mobile'];
+$state = $_POST['state'];
+$district = $_POST['district'];
+$pincode=$_POST['pincode'];
+$address = $_POST['address'];
 
 try {
     $result = $collection->updateOne(
@@ -28,7 +32,11 @@ try {
             'dob' => $dob,
             'age' => $age,
             'gender' => $gender,
-            'mobile' => $mobile
+            'mobile' => $mobile,
+            'state'=>$state,
+            'district'=>$district,
+            'pincode'=>$pincode,
+            'address'=>$address
         ]]
     );
 
@@ -40,7 +48,11 @@ try {
             'dob' => $dob,
             'age' => $age,
             'gender' => $gender,
-            'mobile' => $mobile
+            'mobile' => $mobile,
+            'state'=>$state,
+            'district'=>$district,
+            'pincode'=>$pincode,
+            'address'=>$address
         ];
     } else {
         $response = ['error' => 'No documents matched the query.'];

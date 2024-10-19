@@ -1,6 +1,6 @@
-const urlParams = new URLSearchParams(window.location.search);
+urlParams = new URLSearchParams(window.location.search);
 const place = urlParams.get('location');
-const id = urlParams.get('id');
+id = urlParams.get('id');
 
 // Update the user name and title safely
 document.getElementById('UserName').innerHTML = "&nbsp;" + place;

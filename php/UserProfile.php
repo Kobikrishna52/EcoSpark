@@ -22,7 +22,11 @@ if ($id) {
                 '_id' => 1,
                 'fname' => 1,
                 'lname' => 1,
-                'dob' => 1
+                'dob' => 1,
+                'state'=>1,
+                'district'=>1,
+                'pincode'=>1,
+                'address'=>1
             ]
         ]);
         if ($user) {
