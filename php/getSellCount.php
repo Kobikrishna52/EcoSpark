@@ -13,7 +13,7 @@ header('Content-Type: application/json');
 $client = new Client($uri);
 $database = $client->selectDatabase('EcoSpark');
 $collection = $database->selectCollection('Requests to Sell');
-$query = ['CCid' => $id]; 
+$query = ['sentTo' => $id]; 
 $documentCount = $collection->countDocuments($query);
 
 echo json_encode([

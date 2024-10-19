@@ -192,14 +192,14 @@ function sellItems() {
             url: '../php/UpdateSellCount.php',
             data: { id: id, uid: uid },
             success: function (data) {
-                if (data == true) {
+                if (data.status == true) {
                     alert("Selling Request Sent Successfully");
                 } else {
-                    alert("There was an error sending the request");
+                    alert("Your previous resquest is still in process");
                 }
             },
             error: function () {
-                alert("An error occurred while processing your sell request.");
+                console.log("An error occurred while processing your sell request.");
             }
         });
     });

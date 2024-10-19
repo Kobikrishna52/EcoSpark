@@ -7,7 +7,7 @@ require '../vendor/autoload.php';
 use MongoDB\Client;
 
 $id = $_POST['id'];
-$id = "Cc01tr04";
+$uid = $_POST['uid'];
 $uri = "mongodb+srv://kobikrishna52:Krishna%4052@cluster0.9twqr.mongodb.net/";
 header('X-Content-Type-Options: nosniff');
 header('Content-Type: application/json');
@@ -17,7 +17,8 @@ try {
     $database = $client->selectDatabase('EcoSpark'); // Your database name
     $collection = $database->selectCollection('Requests to Sell'); // Your collection name
     $collection->insertOne(array(
-        'CCid' => $id,
+        'sentTo' => $id,
+        '_id'=>$uid
     ));
 } catch (Exception $e) {
     echo json_encode([
