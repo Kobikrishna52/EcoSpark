@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,27 @@
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
 </head>
+
 <body>
-    <header>
+    <header id="header-container">
+        <div id="morebtn">
+            <p id="cont">
+            </p>
+        </div>
         <h1 id="UserName">User name</h1>
+        <div id="search-container">
+            <input type="search" name="search" id="search-main" placeholder="Serach Here">
+        </div>
     </header>
+    <div id="more">
+        <div id="profile-btn" class="list first">Profile</div>
+
+        <div id="leaderboard-btn" class="list">Leaderboard</div>
+        <div id="announcements-btn" class="list">Announcements</div>
+    </div>
+    <div id="search-results" style="display: none;">
+        No results
+    </div>
     <main id="main-content">
         <div id="columns-row" class="row">
             <div class="column" id="left-column">
@@ -36,8 +54,9 @@
                 </div>
             </div>
         </div>
-    <script src="js/map.js"></script>
-    <script src="js/detail.js"></script>
-    <script src="js/Users.js"></script>
+        <script src="js/map.js"></script>
+        <script src="js/detail.js"></script>
+        <script src="js/Users.js"></script>
 </body>
+
 </html>

@@ -26,7 +26,6 @@ header {
   justify-content: left;
   display: flex;
   padding-left: 1rem;
-  padding-bottom: 0.5rem;
 }
 
 #main-content {
@@ -171,4 +170,93 @@ header {
 
 .expandable-content .name {
   font-weight: bolder;
+}
+
+#header-container {
+  display: flex;
+  align-items: center;
+}
+
+#UserName {
+  flex: 3;
+}
+
+#morebtn {
+  flex: 0.2;
+}
+
+#cont {
+  font-size: xx-large;
+  background-color: white;
+  color: green;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 1rem;
+  height: fit-content;
+  cursor: pointer;
+}
+
+#search-container {
+  flex: 1;
+  display: flex;
+  padding-right: 2%;
+  position: relative;
+  /* Ensures #search-results is positioned relative to this container */
+}
+
+#search-main {
+  width: 100%;
+  height: 45px;
+  border-radius: 0.5rem;
+  background-color: rgb(143, 255, 143);
+  border: 2px solid white;
+  color: #006003;
+  font-size: larger;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+#search-results {
+  position: absolute;
+  width: 30%;
+  right: 2%;
+  top: 10%;
+  background-color: rgb(255, 255, 255);
+  /*border: 1px solid #313131;*/
+  border-radius: 0.6rem;
+  z-index: 500;
+  display: none;
+  float: right;
+  padding: 0.6rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#more {
+  position: absolute;
+  width: 15%;
+  left: 5%;
+  top: 10%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  z-index: 500;
+  display: none;
+  float: right;
+  padding: 0.6rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list {
+  border-top: 2px solid rgb(223, 223, 223);
+  padding-bottom: 0.6rem;
+  padding-top: 0.5rem;
+  cursor: pointer;
+}
+
+.list:hover {
+  font-weight: bolder;
+  transition-duration: 0.4s;
+}
+
+.first {
+  border: none;
 }
