@@ -17,7 +17,8 @@ $("#sbt-btn").click(function () {
             if (data.status == 'success') {
                 let fname = encodeURIComponent(data.fname);
                 let lname = encodeURIComponent(data.lname);
-                window.location.href = '../Users.html?fname='+fname+'&lname='+lname;
+                let id = encodeURIComponent(email);
+                window.location.href = '../Users.html?fname=' + fname + '&lname=' + lname + '&id=' + id;
             } else {
                 document.getElementById('result').innerHTML = "invalid UserId or Password";
             }
