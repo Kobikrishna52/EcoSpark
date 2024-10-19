@@ -1,7 +1,8 @@
 urlParams = new URLSearchParams(window.location.search);
 const place = urlParams.get('location');
+uid = urlParams.get('uid');
 id = urlParams.get('id');
-
+console.log('here in userDetails ' + uid);
 // Update the user name and title safely
 document.getElementById('UserName').innerHTML = "&nbsp;" + place;
 document.getElementById('title').textContent = "EcoSpark | " + place;
@@ -16,9 +17,9 @@ let isSelecting = false;
 function createCard(name, price) {
     const card = document.createElement('div');
     card.classList.add('card');
-    card.innerHTML = `
-    <div class="item_name">
-       ${name.charAt(0).toUpperCase() + name.slice(1)}
+    card.innerHTML =
+        `<div class="item_name">
+    ${name.charAt(0).toUpperCase() + name.slice(1)}
     </div>
     <div class="item_price">
         ₹${price}
@@ -63,55 +64,98 @@ function searchItems() {
     renderItems(filteredItems);
 }
 function updateOrder(selectedItems) {
+    console.log('here inside userDetails ' + uid);
     $.ajax({
         type: 'POST',
         url: '../php/UpdateBuyCount.php',
-        data: { items: selectedItems, id: id, location: place },
+        data: { items: selectedItems, id: id, location: place, uid: uid },
         success: function (data) {
             console.log(data);
         },
-        error: function (data) {
-            console.log("hello");
+        error: function () {
+            alert("You cant make Buy request while your previous request is not approved");
         }
     });
 }
+
+function canBuyorSell(callback) {
+    $.ajax({
+        url: '../php/UserProfile.php',
+        type: 'POST',
+        data: { id: uid },
+        success: function (response) {
+            if (response.error) {
+                console.log(response.error);
+                callback(false); // Call the callback with 'false'
+            } else {
+                console.log(response.data);
+                // Check if any profile field is incomplete
+                if (response.data.fname == " " || response.data.lname == " " || response.data.gender == "-" || response.data._id == "" || response.data.mobile == 0 || response.data.dob == "" || response.data.pincode == "" || response.data.address == "" || response.data.state == "-" || response.data.district == "-") {
+                    callback(false); // Profile is incomplete
+                } else {
+                    callback(true); // Profile is complete
+                }
+            }
+        },
+        error: function () {
+            console.log('An error occurred while fetching user information.');
+            callback(false); // In case of error, treat as incomplete
+        }
+    });
+}
+
+
+
+
+
+
+
 // Function to handle the Buy/Confirm button behavior
 function toggleBuyButton() {
     const buyButton = document.querySelector('.buy');
 
-    if (isSelecting) {
-        // When clicking "Confirm"
-        buyButton.textContent = 'Buy';
-        isSelecting = false;
+    canBuyorSell(function (isProfileComplete) {
+        if (!isProfileComplete) {
+            alert('Profile must be completed before buying.');
+            return; // Exit if the profile is incomplete
+        }
 
-        // Log selected items in the console
-        console.log('Selected Items:', selectedItems);
+        // Profile is complete, proceed with toggling the buy button
+        if (isSelecting) {
+            // When clicking "Confirm"
+            buyButton.textContent = 'Buy';
+            isSelecting = false;
 
-        updateOrder(selectedItems);
-        // Reset selected items after confirming
-        selectedItems = [];
+            // Log selected items in the console
+            console.log('Selected Items:', selectedItems);
 
-        // Reset the card's CSS properties
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.classList.remove('selected'); // Remove the selected class from all cards
-        });
-    } else {
-        // When clicking "Buy"
-        buyButton.textContent = 'Confirm';
-        isSelecting = true;
+            updateOrder(selectedItems);
+            // Reset selected items after confirming
+            selectedItems = [];
 
-        // Make the cards selectable
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('click', function () {
-                if (isSelecting) {
-                    toggleSelectCard(card);
-                }
+            // Reset the card's CSS properties
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.classList.remove('selected'); // Remove the selected class from all cards
             });
-        });
-    }
+        } else {
+            // When clicking "Buy"
+            buyButton.textContent = 'Confirm';
+            isSelecting = true;
+
+            // Make the cards selectable
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', function () {
+                    if (isSelecting) {
+                        toggleSelectCard(card);
+                    }
+                });
+            });
+        }
+    });
 }
+
 
 // Function to toggle card selection
 function toggleSelectCard(card) {
@@ -136,19 +180,31 @@ function toggleSelectCard(card) {
 document.querySelector('.buy').addEventListener('click', toggleBuyButton);
 
 function sellItems() {
-    $.ajax({
-        type: 'POST',
-        url: '../php/UpdateSellCount.php',
-        data: { id: id },
-        success: function (data) {
-            if (data == true) {
-                alert("Selling Request Sent Successfully");
-            } else {
-                alert("There was an error on sending the request");
-            }
+    canBuyorSell(function (isProfileComplete) {
+        if (!isProfileComplete) {
+            alert('Profile must be completed before selling.');
+            return; // Exit if the profile is incomplete
         }
+
+        // Profile is complete, proceed with the sell operation
+        $.ajax({
+            type: 'POST',
+            url: '../php/UpdateSellCount.php',
+            data: { id: id, uid: uid },
+            success: function (data) {
+                if (data == true) {
+                    alert("Selling Request Sent Successfully");
+                } else {
+                    alert("There was an error sending the request");
+                }
+            },
+            error: function () {
+                alert("An error occurred while processing your sell request.");
+            }
+        });
     });
 }
+
 
 // Make the AJAX request to get items
 $.ajax({

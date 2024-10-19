@@ -62,7 +62,7 @@ $(document).ready(function () {
 
                     card.find('.card_details').html('<strong>Location:</strong> ' + item.location);
                     card.on('click', function () {
-                        window.location.href = '../UserDetails.html?location=' + encodeURIComponent(item.location) + '&id=' + encodeURIComponent(item.id);
+                        window.location.href = '../UserDetails.html?location=' + encodeURIComponent(item.location) + '&id=' + encodeURIComponent(item.id) + '&uid=' + id;
                     });
                     $('#Collection-centers-cards').append(card);
                 });
@@ -75,7 +75,7 @@ $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const manager = urlParams.get('manager_name');
     const id = urlParams.get('id');
-    console.log(id);
+    console.log("From detail" + id);
     document.getElementById('cc_name').innerHTML = manager;
     $.ajax({
         url: '../php/getSellCount.php',
