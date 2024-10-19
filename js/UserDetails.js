@@ -73,7 +73,7 @@ function updateOrder(selectedItems) {
             console.log(data);
         },
         error: function () {
-            alert("You cant make Buy request while your previous request is not approved");
+            alert("You can't make Buy request while your previous request is not approved");
         }
     });
 }
@@ -108,7 +108,9 @@ function canBuyorSell(callback) {
 
 
 
-
+let pincode = "";
+let district = "";
+let state = "";
 
 // Function to handle the Buy/Confirm button behavior
 function toggleBuyButton() {
@@ -236,6 +238,24 @@ $.ajax({
     },
     error: function (xhr, status, error) {
         console.error("AJAX Error:", error);
+    }
+});
+
+$.ajax({
+    url: '../php/UserProfile.php',
+    type: 'POST',
+    data: { id: uid },
+    success: function (response) {
+        if (response.error) {
+            console.log(response.error);
+        } else {
+            pincode = response.data.pincode;
+            state = response.data.state;
+            district = response.data.district;
+        }
+    },
+    error: function () {
+        console.log('An error occurred while fetching user information.');
     }
 });
 

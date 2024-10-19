@@ -21,7 +21,6 @@ $uid = $_POST['uid'];
         "items"=> $items ,
         "sentby"=> $uid,
         "sentTo"=>$sentTo,
-        "status"=>"requested"
     ];
 // Update the document
 $result = $collection->InsertOne($document);
