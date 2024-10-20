@@ -231,3 +231,16 @@ h4 {
   left: 30%;
   max-height: 40%;
 }
+
+.heading {
+  font-size: large;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+}
+
+.inside-content {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 2px solid rgb(214, 214, 214);
+  cursor: pointer;
+}

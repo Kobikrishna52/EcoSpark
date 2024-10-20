@@ -28,7 +28,4 @@ foreach ($cursor as $document) {
         ];
     }
 }
-echo json_encode([
-    'status'=> true,
-    'count'=>$documentCount
-]);
+echo json_encode($result);

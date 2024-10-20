@@ -108,38 +108,71 @@ $(document).ready(function () {
             console.log("hello");
         },
     });
-});
 
+    isbuySelected = false;
+    issellSelected = false;
+    buy_requests = document.getElementById('buy_requests');
+    sell_requests = document.getElementById('sell_requests');
+    buycontainer = document.getElementById('buycontainer');
+    sellcontainer = document.getElementById('sellcontainer');
+    buycontainer.addEventListener('click', () => {
+        if (isbuySelected) {
+            buy_requests.style.display = "none";
+            isbuySelected = false;
+            buycontainer.style.color = "black";
+            buycontainer.style.background = "white";
+        } else {
+            buy_requests.style.display = "block";
+            isbuySelected = true;
+            sell_requests.style.display = "none";
+            issellSelected = false;
+            buycontainer.style.color = "white";
+            buycontainer.style.background = "#4CAF50";
+            sellcontainer.style.color = "black";
+            sellcontainer.style.background = "white";
+        }
+    });
 
+    sellcontainer.addEventListener('click', () => {
+        if (issellSelected) {
+            sell_requests.style.display = "none";
+            sellcontainer.style.color = "black";
+            sellcontainer.style.background = "white";
+            issellSelected = false;
+        } else {
+            sell_requests.style.display = "block";
+            issellSelected = true;
+            buy_requests.style.display = "none";
+            isbuySelected = false;
+            sellcontainer.style.color = "white";
+            sellcontainer.style.background = "#4CAF50";
+            sell_requests.style.left = "50%";
+            buycontainer.style.color = "black";
+            buycontainer.style.background = "white";
+        }
+    });
 
-
-isbuySelected = false;
-issellSelected = false;
-buy_requests = document.getElementById('buy_requests');
-sell_requests = document.getElementById('sell_requests');
-buycontainer = document.getElementById('buycontainer');
-sellcontainer = document.getElementById('sellcontainer');
-buycontainer.addEventListener('click', () => {
-    if (isbuySelected) {
-        buy_requests.style.display = "none";
-        isbuySelected = false;
-    } else {
-        buy_requests.style.display = "block";
-        isbuySelected = true;
-        sell_requests.style.display = "none";
-        issellSelected = false;
+    $.ajax({
+        method: 'POST',
+        data: { id: id },
+        url: '../php/getRequestsforBuy.php',
+        success: function (data) {
+            console.log(data);
+            data.forEach((item) => {
+                creatediv(item.id);
+            });
+        }
+    });
+    function creatediv(id) {
+        console.log("id = " + id);
+        div = document.createElement('div');
+        div.classList.add('inside-content');
+        div.innerHTML = id;
+        buy_requests.appendChild(div);
     }
+
 });
 
-sellcontainer.addEventListener('click', () => {
-    if (issellSelected) {
-        sell_requests.style.display = "none";
-        issellSelected = false;
-    } else {
-        sell_requests.style.display = "block";
-        issellSelected = true;
-        buy_requests.style.display = "none";
-        isbuySelected = false;
-        sell_requests.style.left = "50%";
-    }
-});
+
+
+

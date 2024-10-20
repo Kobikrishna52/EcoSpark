@@ -29,7 +29,4 @@ foreach ($cursor as $document) {
         ];
     }
 }
-echo json_encode([
-    'status'=> true,
-    'count'=>$result
-]);
+echo json_encode($result);
