@@ -21,7 +21,7 @@ try {
     $collection = $database->selectCollection('Requests to Sell'); // Your collection name
     $collection->insertOne(array(
         'sentTo' => $id,
-        '_id'=>$uid,
+        'id'=>$uid,
         'pincode'=>$pincode,
         'state'=>$state,
         'district'=>$district,

@@ -20,7 +20,7 @@ $location = $_POST['location'];
 
     // Define the document to be inserted
     $document = [
-        "_id"=>$uid,
+        "id"=>$uid,
         "items"=> $items ,
         "sentby"=> $uid,
         "sentTo"=>$sentTo,

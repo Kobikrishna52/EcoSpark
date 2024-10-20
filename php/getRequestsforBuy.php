@@ -18,9 +18,9 @@ $cursor = $collection->find(['sentTo' => $id]);
 $result = [];
 foreach ($cursor as $document) {
     // Check if 'Name' and 'Location' keys exist
-    if (isset($document['_id'])) {
+    if (isset($document['id'])) {
         $result[] = [
-            'id'=>$document['_id'],
+            'id'=>$document['id'],
             'items'=>$document['items'],
             'pincode'=>$document['pincode'],
             'state'=>$document['state'],

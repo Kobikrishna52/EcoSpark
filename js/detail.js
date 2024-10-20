@@ -151,7 +151,6 @@ $(document).ready(function () {
             buycontainer.style.background = "white";
         }
     });
-
     $.ajax({
         method: 'POST',
         data: { id: id },
@@ -170,7 +169,6 @@ $(document).ready(function () {
         div.innerHTML = id;
         buy_requests.appendChild(div);
     }
-
 });
 
 
