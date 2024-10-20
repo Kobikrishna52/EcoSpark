@@ -68,7 +68,7 @@ function updateOrder(selectedItems) {
     $.ajax({
         type: 'POST',
         url: '../php/UpdateBuyCount.php',
-        data: { items: selectedItems, id: id, location: place, uid: uid },
+        data: { items: selectedItems, id: id, uid: uid, pincode: pincode, state: state, district: district, location: place },
         success: function (data) {
             console.log(data);
         },
@@ -115,7 +115,6 @@ let state = "";
 // Function to handle the Buy/Confirm button behavior
 function toggleBuyButton() {
     const buyButton = document.querySelector('.buy');
-
     canBuyorSell(function (isProfileComplete) {
         if (!isProfileComplete) {
             alert('Profile must be completed before buying.');
@@ -192,7 +191,7 @@ function sellItems() {
         $.ajax({
             type: 'POST',
             url: '../php/UpdateSellCount.php',
-            data: { id: id, uid: uid },
+            data: { id: id, uid: uid, pincode: pincode, state: state, district: district },
             success: function (data) {
                 if (data.status == true) {
                     alert("Selling Request Sent Successfully");
@@ -258,6 +257,7 @@ $.ajax({
         console.log('An error occurred while fetching user information.');
     }
 });
+
 
 // Attach filter logic to the Apply Filter button
 document.getElementById('searchbtn').addEventListener('click', searchItems);

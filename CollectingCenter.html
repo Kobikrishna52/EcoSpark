@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/detail.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
+
 <body>
     <header>
         <h1 id="cc_name">Collecting Centre Name</h1>
@@ -26,7 +28,7 @@
                     </div>
                 </section>
             </div>
-            
+
             <div class="column" id="right-column">
                 <h2 class="columnheader">End Clients</h2>
                 <section id="end-clients-cards" class="cards">
@@ -41,15 +43,19 @@
                 </section>
             </div>
         </div>
+
+        <div id="buy_requests" class="requests">
+        </div>
+        <div id="sell_requests" class="requests"></div>
         <div id="bottom-row" class="row">
             <div id="requests-from-customers" class="box large-box">
                 <h3>Requests from Customers</h3>
                 <div class="columns">
-                    <div class="columndown buy">
+                    <div class="columndown buy" id="buycontainer">
                         <h4>For Buying</h4>
                         <p class="number c1" id="buyCount">0</p>
                     </div>
-                    <div class="columndown sell" >
+                    <div class="columndown sell" id="sellcontainer">
                         <h4>For Selling</h4>
                         <p class="number c1" id="sellCount">0</p>
                     </div>
@@ -67,4 +73,5 @@
     </main>
     <script src="js/detail.js"></script>
 </body>
+
 </html>

@@ -109,3 +109,37 @@ $(document).ready(function () {
         },
     });
 });
+
+
+
+
+isbuySelected = false;
+issellSelected = false;
+buy_requests = document.getElementById('buy_requests');
+sell_requests = document.getElementById('sell_requests');
+buycontainer = document.getElementById('buycontainer');
+sellcontainer = document.getElementById('sellcontainer');
+buycontainer.addEventListener('click', () => {
+    if (isbuySelected) {
+        buy_requests.style.display = "none";
+        isbuySelected = false;
+    } else {
+        buy_requests.style.display = "block";
+        isbuySelected = true;
+        sell_requests.style.display = "none";
+        issellSelected = false;
+    }
+});
+
+sellcontainer.addEventListener('click', () => {
+    if (issellSelected) {
+        sell_requests.style.display = "none";
+        issellSelected = false;
+    } else {
+        sell_requests.style.display = "block";
+        issellSelected = true;
+        buy_requests.style.display = "none";
+        isbuySelected = false;
+        sell_requests.style.left = "50%";
+    }
+});

@@ -21,7 +21,7 @@ try {
 
     // Fetch all documents in the collection
     $cursor = $collection->find();
-
+    //echo json_encode($cursor);
     // Initialize an array to store the names and locations
     $result = [];
 

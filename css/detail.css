@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-html, body {
-    margin: 0;
-    min-height: 100%;
-    min-width: 100%;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 
@@ -13,7 +14,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 80vh; /* Ensure the body takes full viewport height */
+  height: 80vh;
+  /* Ensure the body takes full viewport height */
 }
 
 header {
@@ -25,23 +27,28 @@ header {
 
 #main-content {
   display: flex;
-  flex-direction: column; /* Stack the rows vertically */
-  height: 100%; /* Fill the entire height of the body */
+  flex-direction: column;
+  /* Stack the rows vertically */
+  height: 100%;
+  /* Fill the entire height of the body */
 }
 
 .row {
-  flex: 0 0 auto; /* Do not grow or shrink */
+  flex: 0 0 auto;
+  /* Do not grow or shrink */
 }
 
 #center-row {
-  height: 10%; /* Collecting Centre Name row */
+  height: 10%;
+  /* Collecting Centre Name row */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #columns-row {
-  height: 60%; /* Two columns row */
+  height: 60%;
+  /* Two columns row */
   display: flex;
   padding: 1rem;
   gap: 2rem;
@@ -49,14 +56,19 @@ header {
 
 .column {
   flex: 1;
-  height: 100%; /* Fill the height of the columns row */
-  overflow-y: auto; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Hide horizontal scrolling */
-  scrollbar-width: none; /* For Firefox */
+  height: 100%;
+  /* Fill the height of the columns row */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  overflow-x: hidden;
+  /* Hide horizontal scrolling */
+  scrollbar-width: none;
+  /* For Firefox */
 }
 
 .column::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
+  display: none;
+  /* For Chrome, Safari, and Opera */
 }
 
 .cards {
@@ -75,8 +87,7 @@ header {
   cursor: pointer;
 }
 
-.card:hover
-{
+.card:hover {
   opacity: 0.5;
   transition-duration: 0.4s;
 }
@@ -104,10 +115,12 @@ header {
 }
 
 #bottom-row {
-  height: 30%; /* Remaining 40% space */
+  height: 30%;
+  /* Remaining 40% space */
   display: flex;
   justify-content: center;
-  align-items: center; /* Optional: background for bottom row */
+  align-items: center;
+  /* Optional: background for bottom row */
 }
 
 #bottom-row {
@@ -131,9 +144,9 @@ header {
 .large-box {
   flex: 2;
   box-shadow: none;
-  border:1px solid #adadad;
+  border: 1px solid #adadad;
   display: block;
-  flex-direction:unset;
+  flex-direction: unset;
 }
 
 .medium-box {
@@ -141,8 +154,7 @@ header {
   cursor: pointer;
 }
 
-.medium-box:hover
-{
+.medium-box:hover {
   background-color: #4CAF50;
   color: white;
   transition-duration: 0.4s;
@@ -165,37 +177,35 @@ h4 {
 .columns {
   display: flex;
   justify-content: space-between;
-  gap:1rem;
+  gap: 1rem;
 }
 
 .columndown {
   padding: 0 0.5rem;
   border-radius: 0.3rem;
-  flex:2;
+  flex: 2;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding-bottom: 1rem;
   padding-left: 0.5rem;
   padding-top: 0.5rem;
 }
 
-.columndown:hover{
+.columndown:hover {
   background-color: #4CAF50;
   color: white;
   transition-duration: 0.4s;
 }
 
-.buy
-{
+.buy {
   background-color: white;
   cursor: pointer;
-  
+
 }
 
-.sell
-{
-   background-color: white;
-   cursor: pointer;
-   
+.sell {
+  background-color: white;
+  cursor: pointer;
+
 }
 
 .number {
@@ -205,9 +215,19 @@ h4 {
   margin: 1rem 0;
 }
 
-.c1
-{
+.c1 {
   margin: 0rem 0;
 }
 
-
+.requests {
+  padding: 0.5rem;
+  display: none;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: absolute;
+  z-index: 2000;
+  top: 40%;
+  left: 30%;
+  max-height: 40%;
+}

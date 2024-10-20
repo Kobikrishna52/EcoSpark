@@ -6,8 +6,11 @@ use MongoDB\Client;
 $uri = "mongodb+srv://kobikrishna52:Krishna%4052@cluster0.9twqr.mongodb.net/"; // Connection string to MongoDB
 $items = $_POST['items'];
 $sentTo = $_POST['id'];
-$location = $_POST['location'];
+$pincode = $_POST['pincode'];
+$state = $_POST['state'];
+$district = $_POST['district'];
 $uid = $_POST['uid'];
+$location = $_POST['location'];
     // Create a new MongoDB client instance
     $client = new Client($uri);
 
@@ -21,6 +24,11 @@ $uid = $_POST['uid'];
         "items"=> $items ,
         "sentby"=> $uid,
         "sentTo"=>$sentTo,
+        'pincode'=>$pincode,
+        'state'=>$state,
+        'district'=>$district,
+        'tolocation'=>$location,
+        'status'=>"requested"
     ];
 // Update the document
 $result = $collection->InsertOne($document);

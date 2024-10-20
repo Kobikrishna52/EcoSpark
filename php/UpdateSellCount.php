@@ -8,6 +8,9 @@ use MongoDB\Client;
 
 $id = $_POST['id'];
 $uid = $_POST['uid'];
+$pincode = $_POST['pincode'];
+$state = $_POST['state'];
+$district = $_POST['district'];
 $uri = "mongodb+srv://kobikrishna52:Krishna%4052@cluster0.9twqr.mongodb.net/";
 header('X-Content-Type-Options: nosniff');
 header('Content-Type: application/json');
@@ -18,7 +21,11 @@ try {
     $collection = $database->selectCollection('Requests to Sell'); // Your collection name
     $collection->insertOne(array(
         'sentTo' => $id,
-        '_id'=>$uid
+        '_id'=>$uid,
+        'pincode'=>$pincode,
+        'state'=>$state,
+        'district'=>$district,
+        'status'=>"requested"
     ));
 } catch (Exception $e) {
     echo json_encode([
