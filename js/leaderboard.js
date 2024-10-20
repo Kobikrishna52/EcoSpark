@@ -1,4 +1,5 @@
-
+urlParams = new URLSearchParams(window.location.search);
+uid = urlParams.get('id');
 // Fetch data from getAllSellRequests.php using AJAX
 function fetchSellRequests() {
     return $.ajax({
@@ -67,13 +68,32 @@ function generateLeaderboard(filterBy, filterValue) {
 
         // Display the leaderboard in the console
         console.log("Leaderboard for " + filterBy + ": " + filterValue);
-        leaderboard.forEach(entry => {
-            console.log(`ID: ${entry.id}, Points: ${entry.points}`);
-        });
+        table = document.getElementById('leader-table');
+        for (var i = 0; i < leaderboard.length; i++) {
+            tr = document.createElement('tr');
+            rank = document.createElement('td');
+            rank.textContent = i + 1;
+            rank.classList.add('leader-data');
+            username = document.createElement('td');
+            username.textContent = leaderboard[i].id;
+            username.classList.add('leader-data');
+            points = document.createElement('td');
+            points.textContent = leaderboard[i].points;
+            points.classList.add('leader-data');
+            if (leaderboard[i].id == uid) {
+                document.getElementById('curr-rank').textContent = "#" + (i + 1);
+                console.log("rank display" + uid);
+                tr.style.background = "rgba(178, 255, 62, 0.441)";
+            }
+            tr.appendChild(rank);
+            tr.appendChild(username);
+            tr.appendChild(points);
+            table.appendChild(tr);
+        }
+        console.log(leaderboard.length);
     });
 }
-urlParams = new URLSearchParams(window.location.search);
-uid = urlParams.get('id');
+
 let state = '';
 let district = '';
 let pincode = '';
@@ -98,6 +118,11 @@ $.ajax({
 
 // Listen for changes in the dropdown and regenerate the leaderboard
 $('#leader').change(function () {
+    document.getElementById('leader-table').innerHTML = `<tr>
+                        <th class="l ra">Rank</th>
+                        <th class="l">Name</th>
+                        <th class="l po">Points</th>
+                    </tr>`;
     const selectedFilter = $(this).val();
     filterValue = '';
     if (selectedFilter == 'state')

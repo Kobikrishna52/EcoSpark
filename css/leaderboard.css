@@ -1,0 +1,86 @@
+#leaderboard {
+    display: flex;
+    justify-content: center;
+}
+
+
+#leader-container {
+    padding: 0px 20px 20px 20px;
+    background-color: white;
+    box-shadow: 1px 1px 12px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    position: absolute;
+    top: 15%;
+    display: block;
+    max-height: 60%;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#leaderboard-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 3;
+}
+
+.l {
+    width: 20rem;
+    text-align: center;
+    background-color: rgba(6, 112, 0, 0.705);
+    color: white;
+    font-size: x-large;
+}
+
+.po {
+    width: 6rem;
+}
+
+.ra {
+    width: 6rem;
+}
+
+#tablediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+#leader-table {
+    padding: 0;
+    font-size: larger;
+    margin: 0;
+    overflow: hidden;
+}
+
+#rank-display {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+#leader {
+    flex: 1;
+    font-size: larger;
+}
+
+
+#curr-rank {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.leader-data {
+    text-align: center;
+    font-weight: 500;
+}
+
+#header-here {
+    font-weight: 500;
+}

@@ -7,6 +7,7 @@
     <title>EcoSpark | Home</title>
     <link rel="stylesheet" href="css/Users.css">
     <link rel="stylesheet" href="css/Userprofile.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
@@ -121,13 +122,44 @@
     </div>
     <script src="js/profile.js"></script>
 
+
+
+
+
+
     <div id="leaderboard">
-        <select id="leader" class="data leadoption">
-            <option value="state">State</option>
-            <option value="district">District</option>
-            <option value="pincode">pincode</option>
-        </select>
+        <div id="leader-container">
+            <header id="header-profile">Leaderboard</header>
+            <div id="leaderboard-filter">
+                <header id="header-here">Filter By</header>
+                <select id="leader" class="data leadoption">
+                    <option value="state">State</option>
+                    <option value="district">District</option>
+                    <option value="pincode">pincode</option>
+                </select>
+                <div id="rank-display">
+                    Your rank
+                    <div id="curr-rank">#0</div>
+                </div>
+            </div>
+            <div id="tablediv">
+                <table id="leader-table">
+                    <tr>
+                        <th class="l ra">Rank</th>
+                        <th class="l">Name</th>
+                        <th class="l po">Points</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+
     <main id="main-content">
         <div id="columns-row" class="row">
             <div class="column" id="left-column">
