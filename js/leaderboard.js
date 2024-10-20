@@ -80,8 +80,55 @@ function generateLeaderboard(filterBy, filterValue) {
             points = document.createElement('td');
             points.textContent = leaderboard[i].points;
             points.classList.add('leader-data');
+            currRankElement = document.getElementById('curr-rank');
             if (leaderboard[i].id == uid) {
-                document.getElementById('curr-rank').textContent = "#" + (i + 1);
+                currRankElement.textContent = "#" + (i + 1);
+                if (i + 1 == 1) {
+                    currRankElement.style.fontSize = '3em'; // Font size
+                    currRankElement.style.fontWeight = 'bold'; // Bold text
+                    currRankElement.style.color = 'gold'; // Text color
+
+                    // Set initial text shadow for glowing effect with increased density
+                    currRankElement.style.textShadow =
+                        '0 0 10px rgba(255, 255, 0, 0.9), ' + // Increased density yellow glow
+                        '0 0 20px rgba(255, 255, 0, 0.9), ' +
+                        '0 0 30px rgba(255, 255, 0, 0.9)';
+
+                    // Apply the glowing animation using keyframes
+                    currRankElement.style.animation = 'glowing 1.5s infinite alternate';
+
+                    // Create a style element to hold the keyframes
+                    const style = document.createElement('style');
+                    style.innerHTML = `
+        @keyframes glowing {
+            0% {
+                text-shadow: 
+                    0 0 20px rgba(255, 255, 0, 0.9), 
+                    0 0 30px rgba(255, 255, 0, 0.9), 
+                    0 0 40px rgba(255, 255, 0, 0.9);
+            }
+            50% {
+                text-shadow: 
+                    0 0 25px rgba(255, 255, 0, 0.9), /* Increased density yellow glow */
+                    0 0 40px rgba(255, 255, 0, 0.9), 
+                    0 0 55px rgba(255, 255, 0, 0.9); 
+            }
+            100% {
+                text-shadow: 
+                    0 0 70px rgba(255, 255, 0, 0.9), 
+                    0 0 90px rgba(255, 255, 0, 0.9);
+            }
+        }
+    `;
+                    document.head.appendChild(style);
+                }
+                else {
+                    currRankElement.style.fontSize = '2em'; // Font size
+                    currRankElement.style.fontWeight = 'bold'; // Bold text
+                    currRankElement.style.color = 'black';
+                    currRankElement.style.textShadow = "none";
+                    currRankElement.style.animation = "none";
+                }
                 console.log("rank display" + uid);
                 tr.style.background = "rgba(178, 255, 62, 0.441)";
             }

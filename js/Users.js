@@ -15,17 +15,17 @@ let profilebtn = document.getElementById('profile-btn');
 let profile = document.getElementById('showprofile');
 let isSelected = false;
 let isprofileSelected = false;
-
+let leaderbtn = document.getElementById('leaderboard-btn');
+let leader = document.getElementById('leader-container');
+let isleaderSelected = false;
 // Show the results when the search input is focused
 main.addEventListener('focus', () => {
     res.style.display = "block";
 });
-
 // Hide the results when the input loses focus
 main.addEventListener('blur', () => {
     res.style.display = "none";
 });
-
 morebtn.addEventListener('click', () => {
     if (isSelected) {
         more.style.display = "none";
@@ -46,6 +46,16 @@ profilebtn.addEventListener('click', () => {
     }
 });
 
+leaderbtn.addEventListener('click', () => {
+    if (isleaderSelected) {
+        leader.style.display = "none";
+        isleaderSelected = false;
+    } else {
+        leader.style.display = "block";
+        isleaderSelected = true;
+    }
+});
+
 // Close profile and more divs when clicking outside of them
 document.addEventListener('click', (event) => {
     // Check if the click is outside of the 'more' div and button
@@ -58,5 +68,9 @@ document.addEventListener('click', (event) => {
     if (!profile.contains(event.target) && !profilebtn.contains(event.target)) {
         profile.style.display = "none";
         isprofileSelected = false;
+    }
+    if (!leader.contains(event.target) && !leaderbtn.contains(event.target)) {
+        leader.style.display = "none";
+        isleaderSelected = false;
     }
 });
