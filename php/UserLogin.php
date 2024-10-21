@@ -40,10 +40,10 @@ $collection = $database->selectCollection('userData');
 $userManager = new UserManager($collection);
 
 // Get email and password from POST request
-//$email = $_POST['mail'];
-//$password = $_POST['password'];
-$email = "nirup2244@gmail.com";
-$password = "#Nirup2244";
+$email = $_POST['mail'];
+$password = $_POST['password'];
+//$email = "nirup2244@gmail.com";
+//$password = "#Nirup2244";
 // Check if user exists
 $user = $userManager->userExistsInMongoDB($email, $password);
 
