@@ -55,3 +55,106 @@ header {
     width: 20rem;
     height: 20rem;
 }
+
+.draggable {
+    width: 150px;
+    height: 150px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    line-height: 150px;
+    position: absolute;
+    cursor: move;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.container-of-game {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(208, 208, 208);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.box {
+    width: 45%;
+    height: 200px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    /* Stack items vertically */
+}
+
+.box-name {
+    position: absolute;
+    top: 5px;
+    /* Adjust as needed */
+    left: 5px;
+    /* Adjust as needed */
+    font-weight: bold;
+    /* Make the name bold */
+    font-size: 18px;
+    /* Adjust font size as needed */
+}
+
+
+#div1 {
+    background-color: #fffc50;
+    width: 10rem;
+}
+
+#div2 {
+    background-color: #3b9dff;
+    width: 10rem;
+}
+
+.draggable {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    cursor: move;
+    border-radius: 5px;
+    transition: background-color 1s ease;
+    z-index: 1000;
+}
+
+#timer {
+    width: 100px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#message {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+}
+
+#game {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
