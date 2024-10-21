@@ -50,3 +50,8 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+#ew {
+    width: 20rem;
+    height: 20rem;
+}

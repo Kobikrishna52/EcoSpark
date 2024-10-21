@@ -80,5 +80,5 @@ document.getElementById('education-btn').addEventListener('click', () => {
 });
 
 document.getElementById('auth-btn').addEventListener('click', () => {
-    window.location.href = '../Authcenters.html';
+    window.location.href = '../assets/pdf/AuthCenters.pdf';
 });
