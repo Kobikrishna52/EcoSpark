@@ -1,5 +1,7 @@
 {
     "require": {
-        "mongodb/mongodb": "^1.19"
+        "mongodb/mongodb": "^1.19",
+        "firebase/php-jwt": "^6.10",
+        "vlucas/phpdotenv": "^5.6"
     }
 }

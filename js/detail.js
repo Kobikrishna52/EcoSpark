@@ -62,7 +62,7 @@ $(document).ready(function () {
 
                     card.find('.card_details').html('<strong>Location:</strong> ' + item.location);
                     card.on('click', function () {
-                        //window.location.href = '../UserDetails.html?location=' + encodeURIComponent(item.location) + '&id=' + encodeURIComponent(item.id) + '&uid=' + id;
+                        window.location.href = '../UserDetails.html?location=' + encodeURIComponent(item.location) + '&id=' + encodeURIComponent(item.id) + '&uid=' + id;
                     });
                     $('#Collection-centers-cards').append(card);
                 });
