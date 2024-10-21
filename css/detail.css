@@ -219,6 +219,14 @@ h4 {
   margin: 0rem 0;
 }
 
+#requests-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Ensure it takes up the full height of its parent */
+}
+
 #request-type-selector {
   display: flex;
   font-size: large;
@@ -232,17 +240,12 @@ h4 {
   cursor: pointer;
   border-radius: 10px 10px 0px 0px;
   background-color: #adadad;
-  height: 15%;
-}
-
-#requests-container {
-  padding: 1rem;
-  display: grid;
-  height: 100%;
+  height: auto;
 }
 
 #display-requests {
-  display: grid;
+  display: block;
   background-color: #505050;
-  height: 100%;
+  flex-grow: 1;
+  /* Make it take up the remaining space */
 }

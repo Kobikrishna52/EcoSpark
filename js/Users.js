@@ -74,3 +74,11 @@ document.addEventListener('click', (event) => {
         isleaderSelected = false;
     }
 });
+
+document.getElementById('education-btn').addEventListener('click', () => {
+    window.location.href = '../Education.html';
+});
+
+document.getElementById('auth-btn').addEventListener('click', () => {
+    window.location.href = '../Authcenters.html';
+});
