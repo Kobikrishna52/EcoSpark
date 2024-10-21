@@ -1,4 +1,4 @@
-//window.apiKey = "IuvD1L_Ez9yMFOJILH7OwJTuMP2pyuwcrcq5quAVvvk";
+window.apiKey = "IuvD1L_Ez9yMFOJILH7OwJTuMP2pyuwcrcq5quAVvvk";
 
 function createDOMMarker(data, map) {
     console.log("From map" + data[0].lat);
