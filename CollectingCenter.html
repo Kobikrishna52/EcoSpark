@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoSpark | Collecting centre</title>
+    <title>E-Garuda | Collecting centre</title>
     <link rel="stylesheet" href="css/detail.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -13,21 +13,42 @@
     <header>
         <h1 id="cc_name">Collecting Centre Name</h1>
     </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <main id="main-content">
         <div id="columns-row" class="row">
             <div class="column" id="left-column">
-                <h2 class="columnheader">Seperation Centers</h2>
-                <section id="seperation-centers-cards" class="cards">
-                    <div id="seperation-card-template" class="card" style="display: none;">
-                        <div class="img_div">
-                            <div class="img"></div>
-                        </div>
-                        <div class="card_details_div">
-                            <div class="card_details"></div>
-                        </div>
+                <div id="requests-container">
+                    <div id="request-type-selector">
+                        <div id="buyreq" class="reqswitch">Buy Requests</div>
+                        <div id="sellreq" class="reqswitch">Sell Requests</div>
                     </div>
-                </section>
+                    <div id="display-requests"></div>
+                </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="column" id="right-column">
                 <h2 class="columnheader">End Clients</h2>
@@ -41,15 +62,6 @@
                         </div>
                     </div>
                 </section>
-            </div>
-        </div>
-
-        <div id="buy_requests" class="requests">
-            <div class="heading">Buying Requests
-            </div>
-        </div>
-        <div id="sell_requests" class="requests">
-            <div class="heading">Selling Requests
             </div>
         </div>
         <div id="bottom-row" class="row">
@@ -77,6 +89,7 @@
         </div>
     </main>
     <script src="js/detail.js"></script>
+    <script src="js/CollectionCenter.js"></script>
 </body>
 
 </html>
