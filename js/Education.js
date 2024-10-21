@@ -26,7 +26,6 @@ function startTimer() {
     if (timeLeft > 0) {
         timeLeft--;
         timerDisplay.innerText = timeLeft;
-
         // Change ewaste color gradually from green to red as time passes
         const redValue = Math.floor((10 - timeLeft) * 25.5);
         ewaste.style.backgroundColor = `rgb(${redValue}, ${255 - redValue}, 0)`; // Green to red transition
@@ -36,6 +35,8 @@ function startTimer() {
         disableDragging();
         if (!ewasteMoved) {
             message.innerText = "E-waste can be hazardous, don't keep it at home!";
+            message.style.color = "red";
+            startButton.textContent = "Start again!";
         }
     }
 }
@@ -68,7 +69,9 @@ document.addEventListener('mouseup', function (e) {
         if (ewasteRect.left >= div2Rect.left && ewasteRect.right <= div2Rect.right &&
             ewasteRect.top >= div2Rect.top && ewasteRect.bottom <= div2Rect.bottom) {
             ewasteMoved = true;
+            startButton.textContent = "Start again!";
             message.innerText = "Congratulations! You are safe now!";
+            message.style.color = "green";
             clearInterval(countdown); // Stop timer
             disableDragging(); // Disable dragging after successful drop
         }
