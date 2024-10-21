@@ -68,7 +68,7 @@ document.addEventListener('mouseup', function (e) {
         if (ewasteRect.left >= div2Rect.left && ewasteRect.right <= div2Rect.right &&
             ewasteRect.top >= div2Rect.top && ewasteRect.bottom <= div2Rect.bottom) {
             ewasteMoved = true;
-            message.innerText = "Congratulations!";
+            message.innerText = "Congratulations! You are safe now!";
             clearInterval(countdown); // Stop timer
             disableDragging(); // Disable dragging after successful drop
         }
