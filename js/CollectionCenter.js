@@ -148,6 +148,7 @@ $.ajax({
         data.forEach((item) => {
             if (item.status == "requested") {
                 console.log("requested " + item.id + " " + item.items.length);
+
                 count++;
                 createCardBuy(item.id, item.items.length, item.district, item.pincode);  // Updated function name to createCard
             }
