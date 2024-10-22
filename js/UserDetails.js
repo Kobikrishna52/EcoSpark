@@ -81,7 +81,7 @@ function checkPreviousBuyRequests(callback) {
                 callback(true);
             } else {
                 // Check if any document has status 'requested'
-                const hasPendingRequest = response.some(doc => doc.status === 'requested');
+                const hasPendingRequest = response.some(doc => doc.status == 'requested');
                 if (hasPendingRequest) {
                     alert("Your previous buy request is still not approved.");
                     callback(false);
@@ -109,7 +109,7 @@ function checkPreviousSellRequests(callback) {
                 callback(true);
             } else {
                 // Check if any document has status 'requested'
-                const hasPendingRequest = response.some(doc => doc.status === 'requested');
+                const hasPendingRequest = response.some(doc => doc.status == 'requested');
                 if (hasPendingRequest) {
                     alert("Your previous sell request is still not approved.");
                     callback(false);
