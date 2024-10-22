@@ -1,3 +1,6 @@
+urlParams = new URLSearchParams(window.location.search);
+id = urlParams.get('id');
+
 $.ajax({
     method: 'POST',
     data: { id: id },
@@ -9,6 +12,8 @@ $.ajax({
         });
     }
 });
+
+buy_requests = document.getElementById('display-requests');
 function creatediv(id) {
     console.log("id = " + id);
     div = document.createElement('div');

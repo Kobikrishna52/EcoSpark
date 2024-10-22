@@ -28,7 +28,6 @@ ini_set('display_errors', 1);
 
 use MongoDB\Client;
 use Firebase\JWT\JWT;
-
 // Connection string to MongoDB
 $uri = "mongodb+srv://kobikrishna52:Krishna%4052@cluster0.9twqr.mongodb.net/";
 header('X-Content-Type-Options: nosniff');

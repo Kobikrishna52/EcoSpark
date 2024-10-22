@@ -3,6 +3,7 @@ const place = urlParams.get('location');
 uid = urlParams.get('uid');
 id = urlParams.get('id');
 console.log('here in userDetails ' + uid);
+
 // Update the user name and title safely
 document.getElementById('UserName').innerHTML = "&nbsp;" + place;
 document.getElementById('title').textContent = "EcoSpark | " + place;
@@ -12,6 +13,10 @@ let allItems = [];
 let filteredItems = [];
 let selectedItems = []; // To store selected items
 let isSelecting = false;
+
+let pincode = "";
+let district = "";
+let state = "";
 
 // Function to create and add cards to the card container
 function createCard(name, price) {
@@ -63,21 +68,62 @@ function searchItems() {
 
     renderItems(filteredItems);
 }
-function updateOrder(selectedItems) {
-    console.log('here inside userDetails ' + uid);
+
+// Function to check previous buy requests before proceeding with a new buy request
+function checkPreviousBuyRequests(callback) {
     $.ajax({
+        url: '../php/getRequestsforBuy.php',
         type: 'POST',
-        url: '../php/UpdateBuyCount.php',
-        data: { items: selectedItems, id: id, uid: uid, pincode: pincode, state: state, district: district, location: place },
-        success: function (data) {
-            console.log(data);
+        data: { id: id }, // Send the ID as data
+        success: function (response) {
+            if (response.length === 0) {
+                // No previous requests found
+                callback(true);
+            } else {
+                // Check if any document has status 'requested'
+                const hasPendingRequest = response.some(doc => doc.status === 'requested');
+                if (hasPendingRequest) {
+                    alert("Your previous buy request is still not approved.");
+                    callback(false);
+                } else {
+                    callback(true);
+                }
+            }
         },
         error: function () {
-            alert("You can't make Buy request while your previous request is not approved");
+            console.log('An error occurred while checking previous buy requests.');
+            callback(false);
         }
     });
 }
 
+// Function to check previous sell requests before proceeding with a new sell request
+function checkPreviousSellRequests(callback) {
+    $.ajax({
+        url: '../php/getRequeststoSell.php',
+        type: 'POST',
+        data: { id: id }, // Send the ID as data
+        success: function (response) {
+            if (response.length === 0) {
+                // No previous requests found
+                callback(true);
+            } else {
+                // Check if any document has status 'requested'
+                const hasPendingRequest = response.some(doc => doc.status === 'requested');
+                if (hasPendingRequest) {
+                    alert("Your previous sell request is still not approved.");
+                    callback(false);
+                } else {
+                    callback(true);
+                }
+            }
+        },
+        error: function () {
+            console.log('An error occurred while checking previous sell requests.');
+            callback(false);
+        }
+    });
+}
 function canBuyorSell(callback) {
     $.ajax({
         url: '../php/UserProfile.php',
@@ -103,16 +149,23 @@ function canBuyorSell(callback) {
         }
     });
 }
+// Function to update the order
+function updateOrder(selectedItems) {
+    console.log('here inside userDetails ' + uid);
+    $.ajax({
+        type: 'POST',
+        url: '../php/UpdateBuyCount.php',
+        data: { items: selectedItems, id: id, uid: uid, pincode: pincode, state: state, district: district, location: place },
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            alert("You can't make a Buy request while your previous request is not approved.");
+        }
+    });
+}
 
-
-
-
-
-let pincode = "";
-let district = "";
-let state = "";
-
-// Function to handle the Buy/Confirm button behavior
+// Updated Buy button handler
 function toggleBuyButton() {
     const buyButton = document.querySelector('.buy');
     canBuyorSell(function (isProfileComplete) {
@@ -121,42 +174,78 @@ function toggleBuyButton() {
             return; // Exit if the profile is incomplete
         }
 
-        // Profile is complete, proceed with toggling the buy button
-        if (isSelecting) {
-            // When clicking "Confirm"
-            buyButton.textContent = 'Buy';
-            isSelecting = false;
+        // Check for previous buy requests before proceeding
+        checkPreviousBuyRequests(function (canProceed) {
+            if (!canProceed) return; // Exit if a previous buy request is still pending
 
-            // Log selected items in the console
-            console.log('Selected Items:', selectedItems);
+            // Profile is complete and no pending buy requests, proceed with toggling the buy button
+            if (isSelecting) {
+                // When clicking "Confirm"
+                buyButton.textContent = 'Buy';
+                isSelecting = false;
 
-            updateOrder(selectedItems);
-            // Reset selected items after confirming
-            selectedItems = [];
+                // Log selected items in the console
+                console.log('Selected Items:', selectedItems);
 
-            // Reset the card's CSS properties
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.classList.remove('selected'); // Remove the selected class from all cards
-            });
-        } else {
-            // When clicking "Buy"
-            buyButton.textContent = 'Confirm';
-            isSelecting = true;
+                updateOrder(selectedItems);
+                // Reset selected items after confirming
+                selectedItems = [];
 
-            // Make the cards selectable
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.addEventListener('click', function () {
-                    if (isSelecting) {
-                        toggleSelectCard(card);
-                    }
+                // Reset the card's CSS properties
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    card.classList.remove('selected'); // Remove the selected class from all cards
                 });
-            });
-        }
+            } else {
+                // When clicking "Buy"
+                buyButton.textContent = 'Confirm';
+                isSelecting = true;
+
+                // Make the cards selectable
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    card.addEventListener('click', function () {
+                        if (isSelecting) {
+                            toggleSelectCard(card);
+                        }
+                    });
+                });
+            }
+        });
     });
 }
 
+// Updated Sell button handler
+function sellItems() {
+    canBuyorSell(function (isProfileComplete) {
+        if (!isProfileComplete) {
+            alert('Profile must be completed before selling.');
+            return; // Exit if the profile is incomplete
+        }
+
+        // Check for previous sell requests before proceeding
+        checkPreviousSellRequests(function (canProceed) {
+            if (!canProceed) return; // Exit if a previous sell request is still pending
+
+            // Profile is complete and no pending sell requests, proceed with the sell operation
+            $.ajax({
+                type: 'POST',
+                url: '../php/UpdateSellCount.php',
+                data: { id: id, uid: uid, pincode: pincode, state: state, district: district },
+                success: function (data) {
+                    if (data.status == true) {
+                        alert("Selling Request Sent Successfully");
+                    } else {
+                        alert("Your previous request is still in process");
+                    }
+                },
+                error: function () {
+                    console.log("An error occurred while processing your sell request.");
+                }
+            });
+        });
+    });
+}
 
 // Function to toggle card selection
 function toggleSelectCard(card) {
@@ -176,36 +265,6 @@ function toggleSelectCard(card) {
         selectedItems = selectedItems.filter(item => item.name !== itemName);
     }
 }
-
-// Attach event listener to the Buy button
-document.querySelector('.buy').addEventListener('click', toggleBuyButton);
-
-function sellItems() {
-    canBuyorSell(function (isProfileComplete) {
-        if (!isProfileComplete) {
-            alert('Profile must be completed before selling.');
-            return; // Exit if the profile is incomplete
-        }
-
-        // Profile is complete, proceed with the sell operation
-        $.ajax({
-            type: 'POST',
-            url: '../php/UpdateSellCount.php',
-            data: { id: id, uid: uid, pincode: pincode, state: state, district: district },
-            success: function (data) {
-                if (data.status == true) {
-                    alert("Selling Request Sent Successfully");
-                } else {
-                    alert("Your previous resquest is still in process");
-                }
-            },
-            error: function () {
-                console.log("An error occurred while processing your sell request.");
-            }
-        });
-    });
-}
-
 
 // Make the AJAX request to get items
 $.ajax({
@@ -243,25 +302,22 @@ $.ajax({
 $.ajax({
     url: '../php/UserProfile.php',
     type: 'POST',
-    data: { id: uid },
+    data: { uid: uid },
     success: function (response) {
-        if (response.error) {
-            console.log(response.error);
-        } else {
-            pincode = response.data.pincode;
-            state = response.data.state;
-            district = response.data.district;
-        }
+        pincode = response.pincode;
+        state = response.state;
+        district = response.district;
     },
     error: function () {
-        console.log('An error occurred while fetching user information.');
+        console.error('Error occurred');
     }
 });
 
+// Attach the updated handlers to the Buy and Sell buttons
+document.querySelector('.buy').addEventListener('click', toggleBuyButton);
+document.getElementById('sell').addEventListener('click', sellItems);
 
 // Attach filter logic to the Apply Filter button
 document.getElementById('searchbtn').addEventListener('click', searchItems);
 document.getElementById('applybtn').addEventListener('click', applyFilters);
 
-// Dynamically update min/max price fields based on the range sliders
-document.getElementById('sell').addEventListener('click', sellItems);
