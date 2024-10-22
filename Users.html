@@ -14,12 +14,7 @@
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-    <style>
-        /* Hide the Google Translate banner */
-        .skiptranslate>iframe.skiptranslate {
-            display: none;
-        }
-    </style>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
 </head>
 
 <body>
@@ -29,7 +24,8 @@
             </p>
         </div>
         <h1 id="UserName"></h1>
-        <div id="google_translate_element"></div>
+        <div class="gtranslate_wrapper"></div>
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
         <div id="search-container">
             <input type="search" name="search" id="search-main" placeholder="Serach Here">
         </div>
@@ -189,51 +185,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'hi,ta,te,bn,ml,gu,mr,kn,pa,ur',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-
-                // Listen for language changes
-                const translateElement = document.querySelector('.skiptranslate'); // Google Translate Container
-                const observer = new MutationObserver(() => {
-                    const lang = translateElement.getAttribute('lang');
-                    if (lang) {
-                        // Redirect to the current page with the selected language
-                        const newUrl = window.location.pathname + '?lang=' + lang;
-                        window.history.replaceState(null, null, newUrl);
-                    }
-                });
-                observer.observe(translateElement, { attributes: true });
-            }
-        </script>
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'hi,ta,te,bn,ml,gu,mr,kn,pa,ur',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-
-                const translateElement = document.querySelector('.skiptranslate'); // Google Translate Container
-
-                // Listen for language changes
-                const observer = new MutationObserver(() => {
-                    const lang = translateElement.getAttribute('lang');
-                    if (lang) {
-                        // Save the selected language in localStorage
-                        localStorage.setItem('selectedLanguage', lang);
-                    }
-                });
-
-                observer.observe(translateElement, { attributes: true });
-            }
-        </script>
-        <script type="text/javascript"
-            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <script src="js/map.js"></script>
         <script src="js/detail.js"></script>
         <script src="js/Users.js"></script>
