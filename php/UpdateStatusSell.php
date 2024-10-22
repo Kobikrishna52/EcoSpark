@@ -20,7 +20,7 @@ try {
 
     // Update the document with the matching id
     $updateResult = $collection->updateOne(
-        ['id' => $id], // Filter to find the document with the specified id
+        ['id' => $id,'status'=>'requested'], // Filter to find the document with the specified id
         ['$set' => ['status' => 'confirmed']] // Update the status to "confirmed"
     );
 
