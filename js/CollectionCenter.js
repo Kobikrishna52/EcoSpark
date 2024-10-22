@@ -3,6 +3,8 @@ id = urlParams.get('id');
 buyreq = document.getElementById('buyreq');
 sellreq = document.getElementById('sellreq');
 buyreq.addEventListener('click', () => {
+    sellreq.classList.remove('selected');
+    buyreq.classList.add('selected');
     buy_requests.innerHTML = "";
     $.ajax({
         method: 'POST',
@@ -21,6 +23,8 @@ buyreq.addEventListener('click', () => {
 });
 
 sellreq.addEventListener('click', () => {
+    buyreq.classList.remove('selected');
+    sellreq.classList.add('selected');
     buy_requests.innerHTML = "";
     $.ajax({
         method: 'POST',
