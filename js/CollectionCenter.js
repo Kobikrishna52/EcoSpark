@@ -66,7 +66,15 @@ function createCardBuy(id, len, district, pincode) {
 
     // Add click event listener
     approveDiv.addEventListener('click', function () {
-        console.log("Approved ID: " + id); // Log the ID
+        console.log("Approved ID: " + id);
+        $.ajax({
+            method: 'POST',
+            data: { id: id },
+            url: '../php/UpdateStatusBuy.php',
+            success: function (data) {
+                console.log(data);
+            }
+        });// Log the ID
         buy_requests.removeChild(card);
         buyCount.textContent--; // Remove the card from display
     });
@@ -98,7 +106,16 @@ function createCardSell(id, district, pincode) {
 
     // Add click event listener
     approveDiv.addEventListener('click', function () {
-        console.log("Approved ID: " + id); // Log the ID
+        console.log("Approved ID: " + id);
+        $.ajax({
+            method: 'POST',
+            data: { id: id },
+            url: '../php/UpdateStatusSell.php',
+            success: function (data) {
+                console.log(data);
+            }
+        });
+        // Log the ID
         buy_requests.removeChild(card);
         sellCount.textContent--;  // Remove the card from display
     });
