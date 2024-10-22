@@ -99,8 +99,9 @@ $(document).ready(function () {
         data: { id: id },
         success: function (data) {
             console.log(data.count);
-            if (data.status == true)
+            if (data.status == true) {
                 document.getElementById('buyCount').innerHTML = data.count;
+            }
             else
                 console.log('failed');
         },

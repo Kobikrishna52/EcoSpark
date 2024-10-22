@@ -2,6 +2,8 @@ urlParams = new URLSearchParams(window.location.search);
 id = urlParams.get('id');
 buyreq = document.getElementById('buyreq');
 sellreq = document.getElementById('sellreq');
+buyCount = document.getElementById('buyCount');
+sellCount = document.getElementById('sellCount');
 buyreq.addEventListener('click', () => {
     sellreq.classList.remove('selected');
     buyreq.classList.add('selected');
@@ -65,7 +67,8 @@ function createCardBuy(id, len, district, pincode) {
     // Add click event listener
     approveDiv.addEventListener('click', function () {
         console.log("Approved ID: " + id); // Log the ID
-        buy_requests.removeChild(card); // Remove the card from display
+        buy_requests.removeChild(card);
+        buyCount.textContent--; // Remove the card from display
     });
 
     // Append the "Approve" div to the card
@@ -76,7 +79,6 @@ function createCardBuy(id, len, district, pincode) {
 }
 
 function createCardSell(id, district, pincode) {
-    buy_requests.innerHTML = "";
     console.log("id = " + id);
 
     // Create a card div
@@ -97,7 +99,8 @@ function createCardSell(id, district, pincode) {
     // Add click event listener
     approveDiv.addEventListener('click', function () {
         console.log("Approved ID: " + id); // Log the ID
-        buy_requests.removeChild(card); // Remove the card from display
+        buy_requests.removeChild(card);
+        sellCount.textContent--;  // Remove the card from display
     });
 
     // Append the "Approve" div to the card
