@@ -37,7 +37,7 @@ function generateLeaderboard(filterBy, filterValue) {
         sellRequests[0].forEach(sellRequest => {
             const id = sellRequest.id;
             const status = sellRequest.status;
-            if (status === "requested" && sellRequest[filterBy] === filterValue) {
+            if (status === "confirmed" && sellRequest[filterBy] === filterValue) {
                 if (!pointsTable[id]) {
                     pointsTable[id] = 0;  // Initialize points for new IDs
                 }
@@ -50,7 +50,7 @@ function generateLeaderboard(filterBy, filterValue) {
             const id = buyRequest.id;
             const status = buyRequest.status;
             const itemsCount = buyRequest.items.length;  // Assuming 'items' is an array
-            if (status === "requested" && buyRequest[filterBy] === filterValue) {
+            if (status === "confirmed" && buyRequest[filterBy] === filterValue) {
                 if (!pointsTable[id]) {
                     pointsTable[id] = 0;  // Initialize points for new IDs
                 }
