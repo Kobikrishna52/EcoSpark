@@ -158,6 +158,17 @@ header {
   font-size: x-large;
 }
 
+#sells {
+  display: grid;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.sell {
+  grid: 1;
+}
+
+
 .down-container {
   display: flex;
   gap: 1rem;
