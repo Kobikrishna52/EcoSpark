@@ -4,10 +4,13 @@ buyreq = document.getElementById('buyreq');
 sellreq = document.getElementById('sellreq');
 buyCount = document.getElementById('buyCount');
 sellCount = document.getElementById('sellCount');
+const buy_requests = document.getElementById('display-requests');
+var count = 0;
 buyreq.addEventListener('click', () => {
     sellreq.classList.remove('selected');
     buyreq.classList.add('selected');
     buy_requests.innerHTML = "";
+    count = 0;
     $.ajax({
         method: 'POST',
         data: { id: id },
@@ -17,9 +20,13 @@ buyreq.addEventListener('click', () => {
             data.forEach((item) => {
                 if (item.status == "requested") {
                     console.log("requested " + item.id + " " + item.items.length);
+                    count++;
                     createCardBuy(item.id, item.items.length, item.district, item.pincode);  // Updated function name to createCard
                 }
             });
+            if (count == 0) {
+                buy_requests.innerHTML = '<p class="notfound">No Buy Requests</p>';
+            }
         }
     });
 });
@@ -28,6 +35,7 @@ sellreq.addEventListener('click', () => {
     buyreq.classList.remove('selected');
     sellreq.classList.add('selected');
     buy_requests.innerHTML = "";
+    count = 0;
     $.ajax({
         method: 'POST',
         data: { id: id },
@@ -36,15 +44,19 @@ sellreq.addEventListener('click', () => {
             console.log(data);
             data.forEach((item) => {
                 if (item.status == "requested") {
-                    console.log("requested " + item.id);
-                    createCardSell(id, item.district, item.pincode);  // Updated function name to createCard
+                    console.log("requested" + item.id);
+                    count++;
+                    createCardSell(item.id, item.district, item.pincode);  // Updated function name to createCard
                 }
             });
+            if (count == 0) {
+                buy_requests.innerHTML = '<p class="notfound">No Sell Requests</p>';
+            }
         }
     });
 });
 
-const buy_requests = document.getElementById('display-requests');
+
 
 function createCardBuy(id, len, district, pincode) {
     console.log("id = " + id);
@@ -136,8 +148,12 @@ $.ajax({
         data.forEach((item) => {
             if (item.status == "requested") {
                 console.log("requested " + item.id + " " + item.items.length);
+                count++;
                 createCardBuy(item.id, item.items.length, item.district, item.pincode);  // Updated function name to createCard
             }
         });
+        if (count == 0) {
+            buy_requests.innerHTML = '<p class="notfound">No Buy Requests</p>';
+        }
     }
 });
