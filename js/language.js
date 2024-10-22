@@ -8,5 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
             includedLanguages: 'hi,ta,te,bn,ml,gu,mr,kn,pa,ur'
         });
         translateElement.setEnabledLanguage(lang);
+
     }
 });
